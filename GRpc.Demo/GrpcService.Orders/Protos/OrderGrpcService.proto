@@ -1,0 +1,31 @@
+// 使用proto3语法，不写这个默认使用proto2语法
+syntax = "proto3"; 
+
+// 指定C#命名空间
+option csharp_namespace = "GrpcService.Order";
+
+// 包名
+package Greet;
+
+// 定义一个grpc 服务
+service OrderGrpcService {
+  // 定义一个新增订单的方法
+  rpc AddOrder (OrderRequest) returns (OrderResponse);
+}
+
+// 定义AddOrder请求参数
+// int32 字段类型，id 字段名称，1 字段标识号（用来在消息的二进制格式中识别各个字段的）
+message OrderRequest{
+	int32 id = 1;
+	string name = 2;
+	double price = 3;
+	string Remark = 4;
+}
+
+//定义AddOrder返回值
+message OrderResponse{
+	int32 id = 1;
+	string msg = 2;
+}
+
+
