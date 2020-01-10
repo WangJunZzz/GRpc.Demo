@@ -1,0 +1,20 @@
+﻿syntax =  "proto3";
+
+option csharp_namespace = "OrderServices";
+
+service OrderGrpcService{
+	 
+	rpc GetOrderById (RequestItem) returns (OrderInfoDTO);
+}
+
+message  RequestItem{
+	string OrderId = 1;
+}
+
+message OrderInfoDTO{
+	string OrderId = 1;
+	string ProductId = 2;
+	string ProductName = 3;
+	string Price = 4;
+	int32 Number = 5;
+}
